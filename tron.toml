@@ -162,3 +162,31 @@ name = "bin-mcp-run"
 category = "mcp"
 repo_path = "bin/mcp-run.cmd"
 system_path = "${HOME}/bin/mcp-run.cmd"
+
+# =============================================================================
+# Shell Completions
+# =============================================================================
+
+[[config]]
+name = "mcp-completions-nu"
+category = "completions"
+repo_path = "completions/mcp.nu"
+system_path = "${APPDATA}/nushell/completions/mcp.nu"
+
+[[config]]
+name = "mcp-completions-ps1"
+category = "completions"
+repo_path = "completions/mcp.ps1"
+system_path = "${HOME}/Documents/PowerShell/completions/mcp.ps1"
+
+[[config]]
+name = "tron-completions-nu"
+category = "completions"
+repo_path = "completions/tron.nu"
+system_path = "${APPDATA}/nushell/completions/tron.nu"
+
+[[config]]
+name = "tron-completions-ps1"
+category = "completions"
+repo_path = "completions/tron.ps1"
+system_path = "${HOME}/Documents/PowerShell/completions/tron.ps1"
