@@ -1,14 +1,40 @@
 {
   "mcp": {
-    "linear": {
+    "chrome-devtools": {
       "type": "local",
       "command": [
         "cmd.exe",
         "/c",
-        "C:\\Users\\user\\.cursor\\run-mcp.cmd",
-        "mcp-remote\\dist\\proxy.js",
-        "https://mcp.linear.app/mcp"
-      ],
+        "C:\\Users\\user\\.mcp\\mcp-run.cmd",
+        "node:chrome-devtools-mcp/build/src/index.js"
+      ]
+    },
+    "clear-thought": {
+      "type": "local",
+      "command": [
+        "cmd.exe",
+        "/c",
+        "C:\\Users\\user\\.mcp\\mcp-run.cmd",
+        "node:@waldzellai/clear-thought/dist/index.js"
+      ]
+    },
+    "code-context-provider": {
+      "type": "local",
+      "command": [
+        "cmd.exe",
+        "/c",
+        "C:\\Users\\user\\.mcp\\mcp-run.cmd",
+        "node:code-context-provider-mcp/index.js"
+      ]
+    },
+    "context7": {
+      "type": "local",
+      "command": [
+        "cmd.exe",
+        "/c",
+        "C:\\Users\\user\\.mcp\\mcp-run.cmd",
+        "node:@upstash/context7-mcp/dist/index.js"
+      ]
     },
     "daedra": {
       "type": "local",
@@ -19,27 +45,109 @@
         "stdio"
       ]
     },
-    "chrome-devtools": {
+    "fetcher": {
       "type": "local",
       "command": [
         "cmd.exe",
         "/c",
-        "C:\\Users\\user\\.cursor\\run-mcp.cmd",
-        "chrome-devtools-mcp\\build\\src\\index.js"
+        "C:\\Users\\user\\.mcp\\mcp-run.cmd",
+        "node:fetcher-mcp/build/index.js"
       ]
     },
-    "context7": {
+    "g-search": {
       "type": "local",
       "command": [
         "cmd.exe",
         "/c",
-        "C:\\Users\\user\\.cursor\\run-mcp.cmd",
-        "@upstash\\context7-mcp\\dist\\index.js"
+        "C:\\Users\\user\\.mcp\\mcp-run.cmd",
+        "node:g-search-mcp/build/index.js"
       ]
     },
     "gitmcp": {
       "type": "remote",
       "url": "https://gitmcp.io/docs"
+    },
+    "json": {
+      "type": "local",
+      "command": [
+        "cmd.exe",
+        "/c",
+        "C:\\Users\\user\\.mcp\\mcp-run.cmd",
+        "node:@gongrzhe/server-json-mcp/build/index.js"
+      ]
+    },
+    "linear": {
+      "type": "local",
+      "command": [
+        "cmd.exe",
+        "/c",
+        "C:\\Users\\user\\.mcp\\mcp-run.cmd",
+        "node:mcp-remote/dist/proxy.js",
+        "https://mcp.linear.app/mcp"
+      ]
+    },
+    "package-docs": {
+      "type": "local",
+      "command": [
+        "cmd.exe",
+        "/c",
+        "C:\\Users\\user\\.mcp\\mcp-run.cmd",
+        "node:mcp-package-docs/build/index.js"
+      ]
+    },
+    "postmancer": {
+      "type": "local",
+      "command": [
+        "cmd.exe",
+        "/c",
+        "C:\\Users\\user\\.mcp\\mcp-run.cmd",
+        "node:postmancer/dist/src/index.js"
+      ]
+    },
+    "sequential-thinking": {
+      "type": "local",
+      "command": [
+        "cmd.exe",
+        "/c",
+        "C:\\Users\\user\\.mcp\\mcp-run.cmd",
+        "node:mcp-sequentialthinking-tools/dist/index.js"
+      ]
+    },
+    "shannon-thinking": {
+      "type": "local",
+      "command": [
+        "cmd.exe",
+        "/c",
+        "C:\\Users\\user\\.mcp\\mcp-run.cmd",
+        "node:server-shannon-thinking/dist/index.js"
+      ]
+    },
+    "stochastic-thinking": {
+      "type": "local",
+      "command": [
+        "cmd.exe",
+        "/c",
+        "C:\\Users\\user\\.mcp\\mcp-run.cmd",
+        "node:@waldzellai/stochasticthinking/dist/index.js"
+      ]
+    },
+    "structured-thinking": {
+      "type": "local",
+      "command": [
+        "cmd.exe",
+        "/c",
+        "C:\\Users\\user\\.mcp\\mcp-run.cmd",
+        "node:structured-thinking/dist/index.js"
+      ]
+    },
+    "tavily": {
+      "type": "local",
+      "command": [
+        "cmd.exe",
+        "/c",
+        "C:\\Users\\user\\.mcp\\mcp-run.cmd",
+        "node:tavily-mcp/build/index.js"
+      ]
     }
   },
   "$schema": "https://opencode.ai/config.json"

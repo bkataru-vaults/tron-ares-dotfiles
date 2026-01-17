@@ -26,10 +26,19 @@ Crimson red terminal configuration inspired by Tron: Ares. Pure black background
 | **Git** | `git/.gitconfig` | Git config with delta pager |
 | **GitHub CLI** | `gh/config.yml` | gh aliases and settings |
 | **Ripgrep** | `ripgrep/.ripgreprc` | Smart-case search defaults |
-| **OpenCode** | `opencode/opencode.json` | AI coding assistant MCP servers |
 | **Fastfetch** | `fastfetch/config.jsonc` | System info display |
 | **Winfetch** | `fastfetch/winfetch.json` | Windows system info (legacy) |
 | **Spotify Player** | `spotify-player/app.toml` | TUI Spotify client |
+
+### MCP Infrastructure
+| Component | Config File | Description |
+|-----------|-------------|-------------|
+| **MCP Runner** | `mcp/mcp-run.cmd` | Universal MCP server runner (Node/Bun/Deno) |
+| **MCP Runner (PS)** | `mcp/mcp-run.ps1` | PowerShell version |
+| **Server Definitions** | `mcp/servers.json` | Single source of truth for all MCP servers |
+| **Config Generator** | `mcp/mcp-gen-config.ps1` | Generates Cursor and OpenCode configs |
+| **PATH Shim** | `bin/mcp-run.cmd` | Shim for `~/bin` (in PATH) |
+| **OpenCode Config** | `opencode/opencode.json` | Generated OpenCode MCP config |
 
 ## Installation (Windows)
 
@@ -85,6 +94,25 @@ mkdir -Force $HOME\.config\fastfetch
 Copy-Item fastfetch\config.jsonc $HOME\.config\fastfetch\config.jsonc
 mkdir -Force $HOME\.config\spotify-player
 Copy-Item spotify-player\app.toml $HOME\.config\spotify-player\app.toml
+
+# === MCP Infrastructure ===
+# Create directories
+mkdir -Force $HOME\.mcp
+mkdir -Force $HOME\bin
+
+# Copy MCP files
+Copy-Item mcp\mcp-run.cmd $HOME\.mcp\mcp-run.cmd
+Copy-Item mcp\mcp-run.ps1 $HOME\.mcp\mcp-run.ps1
+Copy-Item mcp\servers.json $HOME\.mcp\servers.json
+Copy-Item mcp\mcp-gen-config.ps1 $HOME\.mcp\mcp-gen-config.ps1
+Copy-Item mcp\.node-version $HOME\.mcp\.node-version
+Copy-Item mcp\.env.example $HOME\.mcp\.env  # Edit with your API keys!
+
+# PATH shim
+Copy-Item bin\mcp-run.cmd $HOME\bin\mcp-run.cmd
+
+# Generate Cursor and OpenCode configs
+& $HOME\.mcp\mcp-gen-config.ps1
 ```
 
 ### Font
@@ -135,24 +163,43 @@ scoop install JetBrainsMono-NF
 - zdiff3 conflict style for easier merges
 - autocrlf disabled (consistent line endings)
 
+### MCP Infrastructure
+- **Universal runner** supporting multiple runtimes:
+  - `node:` - Run via fnm (Fast Node Manager)
+  - `bun:` - Run via Bun runtime
+  - `deno:` - Run via Deno runtime
+  - `npx:` - Auto-install and run via npx
+  - `bunx:` - Auto-install and run via bunx
+- **Single source of truth** - `servers.json` defines all MCP servers once
+- **Config generator** - Generates Cursor and OpenCode configs automatically
+- **Environment isolation** - `.env` file for API keys (never committed)
+- **17 MCP servers** pre-configured:
+  - Thinking tools (sequential, structured, shannon, stochastic, clear-thought)
+  - Search (Tavily, g-search)
+  - Documentation (context7, package-docs, gitmcp)
+  - Utilities (chrome-devtools, postmancer, json, fetcher)
+  - Project management (Linear)
+
 ## File Sizes
 
 ```
-    238 B   ripgrep/
-    308 B   git/
-    349 B   helix/
-    951 B   opencode/
-    990 B   spotify-player/
-   1.62 KiB gh/
-   2.31 KiB powershell/
-   2.33 KiB alacritty/
-   2.46 KiB fastfetch/
-   4.79 KiB zed/
-  11.30 KiB starship/
-  21.36 KiB wezterm/
-  23.18 KiB nushell/
-  ---------
-  ~72 KiB   total
+     1 KiB   bin/
+     1 KiB   git/
+     1 KiB   ripgrep/
+     2 KiB   helix/
+     4 KiB   alacritty/
+     4 KiB   gh/
+     4 KiB   opencode/
+     4 KiB   powershell/
+     4 KiB   spotify-player/
+     8 KiB   fastfetch/
+     8 KiB   zed/
+    16 KiB   mcp/
+    16 KiB   starship/
+    24 KiB   wezterm/
+    28 KiB   nushell/
+   ---------
+   ~120 KiB  total
 ```
 
 ## Theme Colors
@@ -169,4 +216,5 @@ scoop install JetBrainsMono-NF
 
 - **Zed settings**: API keys are templated as `${TAVILY_API_KEY}` - replace with your own
 - **Paths**: Some configs use `${HOME}` or `${SCOOP}` placeholders - adjust for your system
-- **OpenCode**: MCP server paths reference `C:\Users\user\.cursor\` - update as needed
+- **MCP**: After deployment, edit `~/.mcp/.env` with your API keys, then run `mcp-gen-config.ps1` to regenerate configs
+- **Cursor/OpenCode configs**: Generated files - edit `servers.json` and regenerate instead of editing directly

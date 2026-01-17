@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "MCP Server Definitions - Single Source of Truth",
+  "servers": {
+    "context7": {
+      "runtime": "node",
+      "path": "@upstash/context7-mcp/dist/index.js",
+      "description": "Library documentation lookup via Context7",
+      "tools": ["resolve-library-id", "get-library-docs"],
+      "disabled": false
+    },
+    "chrome-devtools": {
+      "runtime": "node",
+      "path": "chrome-devtools-mcp/build/src/index.js",
+      "description": "Browser automation and DevTools access",
+      "tools": [],
+      "disabled": false
+    },
+    "tavily": {
+      "runtime": "node",
+      "path": "tavily-mcp/build/index.js",
+      "description": "Web search via Tavily API",
+      "env": ["TAVILY_API_KEY"],
+      "tools": ["tavily-search", "tavily-extract"],
+      "disabled": false
+    },
+    "sequential-thinking": {
+      "runtime": "node",
+      "path": "mcp-sequentialthinking-tools/dist/index.js",
+      "description": "Sequential thinking reasoning tools",
+      "tools": ["sequentialthinking_tools"],
+      "disabled": false
+    },
+    "clear-thought": {
+      "runtime": "node",
+      "path": "@waldzellai/clear-thought/dist/index.js",
+      "description": "Mental models and debugging approaches",
+      "tools": ["sequentialthinking", "mentalmodel", "debuggingapproach"],
+      "disabled": false
+    },
+    "stochastic-thinking": {
+      "runtime": "node",
+      "path": "@waldzellai/stochasticthinking/dist/index.js",
+      "description": "Stochastic algorithm reasoning",
+      "tools": ["stochasticalgorithm"],
+      "disabled": false
+    },
+    "structured-thinking": {
+      "runtime": "node",
+      "path": "structured-thinking/dist/index.js",
+      "description": "Structured thought capture and retrieval",
+      "tools": ["capture_thought", "revise_thought", "retrieve_relevant_thoughts", "get_thinking_summary", "clear_thinking_history"],
+      "disabled": false
+    },
+    "shannon-thinking": {
+      "runtime": "node",
+      "path": "server-shannon-thinking/dist/index.js",
+      "description": "Shannon information theory reasoning",
+      "tools": ["shannonthinking"],
+      "disabled": false
+    },
+    "json": {
+      "runtime": "node",
+      "path": "@gongrzhe/server-json-mcp/build/index.js",
+      "description": "JSON query and filtering",
+      "tools": ["query", "filter"],
+      "disabled": false
+    },
+    "postmancer": {
+      "runtime": "node",
+      "path": "postmancer/dist/src/index.js",
+      "description": "HTTP request collections (Postman-like)",
+      "env": ["LOG_LEVEL"],
+      "tools": ["http_request", "list_collections", "list_requests", "save_request", "request_from_collection", "set_environment_variable", "get_environment_variables"],
+      "disabled": false
+    },
+    "package-docs": {
+      "runtime": "node",
+      "path": "mcp-package-docs/build/index.js",
+      "description": "Package documentation lookup (npm, go, python, swift)",
+      "tools": ["search_package_docs", "describe_go_package", "describe_python_package", "describe_npm_package", "describe_swift_package", "get_npm_package_doc"],
+      "disabled": false
+    },
+    "fetcher": {
+      "runtime": "node",
+      "path": "fetcher-mcp/build/index.js",
+      "description": "URL fetching utility",
+      "tools": ["fetch_url", "fetch_urls"],
+      "disabled": false
+    },
+    "g-search": {
+      "runtime": "node",
+      "path": "g-search-mcp/build/index.js",
+      "description": "Google search",
+      "tools": ["search"],
+      "disabled": false
+    },
+    "code-context-provider": {
+      "runtime": "node",
+      "path": "code-context-provider-mcp/index.js",
+      "description": "Code context extraction",
+      "tools": ["get_code_context"],
+      "disabled": false
+    },
+    "linear": {
+      "runtime": "node",
+      "path": "mcp-remote/dist/proxy.js",
+      "args": ["https://mcp.linear.app/mcp"],
+      "description": "Linear issue tracking (via mcp-remote proxy)",
+      "tools": [],
+      "disabled": false
+    },
+    "gitmcp": {
+      "type": "remote",
+      "url": "https://gitmcp.io/docs",
+      "description": "GitHub repository documentation",
+      "tools": ["match_common_libs_owner_repo_mapping", "fetch_generic_documentation", "search_generic_documentation", "search_generic_code", "fetch_generic_url_content"],
+      "disabled": false
+    },
+    "daedra": {
+      "type": "native",
+      "command": "daedra",
+      "args": ["serve", "--transport", "stdio"],
+      "description": "Web browsing and search (native Go binary)",
+      "tools": [],
+      "disabled": false,
+      "opencode_only": true
+    }
+  }
+}
