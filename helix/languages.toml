@@ -1,0 +1,6 @@
+[language-server.nimlangserver]
+command = "C:\\Users\\user\\.nimble\\bin\\nimlangserver"
+
+[[language]]
+name = "nim"
+language-servers = [ "nimlangserver" ]

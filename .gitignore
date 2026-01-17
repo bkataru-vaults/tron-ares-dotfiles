@@ -8,6 +8,8 @@ history.txt
 .DS_Store
 Thumbs.db
 desktop.ini
+*.log
+*.log.old
 
 # Editor files
 *.swp
@@ -20,3 +22,15 @@ desktop.ini
 *.bak
 *.backup
 *.orig
+
+# Secrets - NEVER commit these
+.env
+*.env
+*credentials*
+*secret*
+*api_key*
+
+# Cache and temp
+*.cache
+node_modules/
+__pycache__/

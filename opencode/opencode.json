@@ -1,0 +1,46 @@
+{
+  "mcp": {
+    "linear": {
+      "type": "local",
+      "command": [
+        "cmd.exe",
+        "/c",
+        "C:\\Users\\user\\.cursor\\run-mcp.cmd",
+        "mcp-remote\\dist\\proxy.js",
+        "https://mcp.linear.app/mcp"
+      ],
+    },
+    "daedra": {
+      "type": "local",
+      "command": [
+        "daedra",
+        "serve",
+        "--transport",
+        "stdio"
+      ]
+    },
+    "chrome-devtools": {
+      "type": "local",
+      "command": [
+        "cmd.exe",
+        "/c",
+        "C:\\Users\\user\\.cursor\\run-mcp.cmd",
+        "chrome-devtools-mcp\\build\\src\\index.js"
+      ]
+    },
+    "context7": {
+      "type": "local",
+      "command": [
+        "cmd.exe",
+        "/c",
+        "C:\\Users\\user\\.cursor\\run-mcp.cmd",
+        "@upstash\\context7-mcp\\dist\\index.js"
+      ]
+    },
+    "gitmcp": {
+      "type": "remote",
+      "url": "https://gitmcp.io/docs"
+    }
+  },
+  "$schema": "https://opencode.ai/config.json"
+}

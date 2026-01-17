@@ -1,0 +1,11 @@
+# Ripgrep configuration
+# https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#configuration-file
+
+# Smart case: case-insensitive if pattern is all lowercase
+--smart-case
+
+# Follow symlinks
+--follow
+
+# Add color output
+--color=auto

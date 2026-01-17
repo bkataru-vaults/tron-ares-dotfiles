@@ -1,0 +1,200 @@
+{
+  "context_servers": {
+    "daedra": {
+      "enabled": true,
+      "command": "daedra",
+      "args": ["serve", "--transport", "stdio"]
+    },
+    "mcp-server-tavily": {
+      "enabled": true,
+      "settings": {
+        "tavily_api_key": "${TAVILY_API_KEY}"
+      }
+    }
+  },
+  "language_models": {
+    "openai": {
+      "api_url": "https://integrate.api.nvidia.com/v1",
+      "available_models": [
+        {
+          "name": "moonshotai/kimi-k2-instruct",
+          "display_name": "Kimi K2 Thinking",
+          "max_tokens": 131072,
+          "max_output_tokens": 8192
+        },
+        {
+          "name": "deepseek-ai/deepseek-r1",
+          "display_name": "DeepSeek R1",
+          "max_tokens": 65536,
+          "max_output_tokens": 8192
+        },
+        {
+          "name": "qwen/qwen3-coder-480b-a35b-instruct",
+          "display_name": "Qwen3 Coder 480B",
+          "max_tokens": 262144,
+          "max_output_tokens": 4096
+        }
+      ]
+    }
+  },
+  "tab_bar": {
+    "show": true
+  },
+  "icon_theme": "Symbols Icon Theme",
+  "agent": {
+    "commit_message_model": {
+      "provider": "openai",
+      "model": "deepseek-ai/deepseek-r1"
+    },
+    "profiles": {
+      "research": {
+        "default_model": {
+          "provider": "copilot_chat",
+          "model": "claude-opus-4.5"
+        },
+        "name": "Research",
+        "tools": {
+          "thinking": true,
+          "terminal": true,
+          "read_file": true,
+          "open": true,
+          "now": true,
+          "move_path": true,
+          "list_directory": true,
+          "grep": true,
+          "find_path": true,
+          "fetch": true,
+          "edit_file": true,
+          "diagnostics": true,
+          "delete_path": true,
+          "create_directory": true,
+          "copy_path": true
+        },
+        "enable_all_context_servers": false,
+        "context_servers": {
+          "mcp-server-context7": {
+            "tools": {
+              "resolve-library-id": true,
+              "get-library-docs": true
+            }
+          },
+          "daedra": {
+            "tools": {
+              "visit_page": true,
+              "search_duckduckgo": true
+            }
+          }
+        }
+      }
+    },
+    "always_allow_tool_actions": true,
+    "inline_assistant_model": {
+      "provider": "openai",
+      "model": "deepseek-ai/deepseek-r1"
+    },
+    "default_profile": "write",
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-opus-4.5"
+    },
+    "model_parameters": [
+      {
+        "provider": "openai",
+        "model": "moonshotai/kimi-k2-instruct",
+        "temperature": 0.6
+      },
+      {
+        "provider": "openai",
+        "model": "deepseek-ai/deepseek-r1",
+        "temperature": 0.6
+      },
+      {
+        "provider": "openai",
+        "model": "qwen/qwen3-coder-480b-a35b-instruct",
+        "temperature": 0.7
+      }
+    ]
+  },
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "indent_guides": {
+    "enabled": true
+  },
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_size": 16,
+  "buffer_font_size": 14.0,
+  "terminal": {
+    "font_size": 14
+  },
+  "theme": "Night Owl Dark",
+  "languages": {
+    "Swift": {
+      "language_servers": ["sourcekit-lsp"],
+      "formatter": "language_server",
+      "format_on_save": "on"
+    },
+    "Nim": {
+      "auto_indent": false,
+      "tab_size": 2
+    },
+    "Zig": {
+      "formatter": "language_server",
+      "format_on_save": "on",
+      "language_servers": ["zls"],
+      "code_actions_on_format": {
+        "source.organizeImports": true
+      }
+    },
+    "JavaScript": {
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "biome" } },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
+      }
+    },
+    "TypeScript": {
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "biome" } },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
+      }
+    },
+    "TSX": {
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "biome" } },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
+      }
+    }
+  },
+  "lsp": {
+    "nim": {
+      "binary": {
+        "path": "${HOME}\\.nimble\\bin\\nimlsp.cmd",
+        "arguments": []
+      },
+      "settings": {
+        "timeout": 10000,
+        "maxNimsuggestProcesses": 1,
+        "notificationVerbosity": "warning"
+      }
+    },
+    "zls": {
+      "settings": {
+        "zls": {
+          "enable_build_on_save": true
+        }
+      }
+    },
+    "sourcekit-lsp": {
+      "binary": {
+        "path": "${SCOOP}\\apps\\swift\\current\\Toolchains\\usr\\bin\\sourcekit-lsp.exe"
+      }
+    }
+  }
+}
