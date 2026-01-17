@@ -1,0 +1,421 @@
+# =============================================================================
+# Starship Configuration - Tron Ares (Enhanced Crimson Grid)
+# =============================================================================
+# Optimized for: Tron Ares theme, JetBrainsMono Nerd Font
+# Inspired by the digital circuitry of the Grid
+
+# Performance settings
+command_timeout = 2000
+scan_timeout = 2000
+
+# =============================================================================
+# PROMPT FORMAT - Tron-style with data blocks
+# =============================================================================
+format = """
+$username\
+$hostname\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$fossil_branch\
+$fossil_metrics\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$pijul_channel\
+$docker_context\
+$package\
+$c\
+$cmake\
+$cobol\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$fennel\
+$gleam\
+$golang\
+$gradle\
+$haskell\
+$haxe\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$opa\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$quarto\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$solidity\
+$swift\
+$terraform\
+$typst\
+$vlang\
+$vagrant\
+$zig\
+$buf\
+$nix_shell\
+$conda\
+$meson\
+$spack\
+$memory_usage\
+$env_var\
+$crystal\
+$custom\
+$sudo\
+$fill\
+$jobs\
+$battery\
+$time\
+$cmd_duration\
+$status\
+$os\
+$container\
+$shell\
+$line_break\
+$character"""
+
+# Add a new line before the prompt
+add_newline = true
+
+# =============================================================================
+# PROMPT CHARACTER - Tron cursor style
+# =============================================================================
+[character]
+success_symbol = "[](bold #FF3333)[ ](bold #FF3333)[](bold #992222)"
+error_symbol = "[](bold #DF1F1F)[ ](bold #DF1F1F)[](bold #661111)"
+vimcmd_symbol = "[](bold #CC2222)[](bold #CC2222)[](bold #992222)"
+
+# =============================================================================
+# FILL - Grid line separator
+# =============================================================================
+[fill]
+symbol = "─"
+style = "#331111"
+
+# =============================================================================
+# DIRECTORY - Circuit path display
+# =============================================================================
+[directory]
+style = "bold #FF3333"
+format = "[](bold #992222)[$path]($style)[](bold #992222) "
+truncation_length = 4
+truncation_symbol = ".../"
+home_symbol = "~"
+read_only = " "
+read_only_style = "#DF1F1F"
+
+[directory.substitutions]
+"Documents" = " docs"
+"Downloads" = " dl"
+"Developer" = " dev"
+"Development" = " dev"
+"Projects" = " proj"
+".config" = " cfg"
+
+# =============================================================================
+# GIT BRANCH - Data stream indicator
+# =============================================================================
+[git_branch]
+symbol = " "
+style = "bold #CC2222"
+format = "[$symbol$branch(:$remote_branch)]($style) "
+truncation_length = 24
+
+# =============================================================================
+# GIT COMMIT - Short hash display
+# =============================================================================
+[git_commit]
+style = "#992222"
+format = "[\\($hash$tag\\)]($style) "
+commit_hash_length = 7
+tag_symbol = " "
+only_detached = true
+
+# =============================================================================
+# GIT STATE - Rebase/merge status
+# =============================================================================
+[git_state]
+style = "bold #DF1F1F"
+format = '[\($state( $progress_current/$progress_total)\)]($style) '
+rebase = "REBASING"
+merge = "MERGING"
+revert = "REVERTING"
+cherry_pick = "CHERRY-PICKING"
+bisect = "BISECTING"
+am = "AM"
+am_or_rebase = "AM/REBASE"
+
+# =============================================================================
+# GIT METRICS - Lines added/removed
+# =============================================================================
+[git_metrics]
+disabled = false
+format = "([+$added]($added_style))([-$deleted]($deleted_style)) "
+added_style = "bold #FF3333"
+deleted_style = "#992222"
+
+# =============================================================================
+# GIT STATUS - Circuit status indicators
+# =============================================================================
+[git_status]
+style = "#FF6666"
+format = "([$all_status$ahead_behind]($style))"
+conflicted = "[](bold #DF1F1F)"
+ahead = "[${count}](bold #FF3333)"
+behind = "[${count}](#CC3333)"
+diverged = "[${ahead_count}${behind_count}](bold #BB2222)"
+up_to_date = ""
+untracked = "[?](#992222)"
+stashed = "[](#CC2222)"
+modified = "[](#FF6666)"
+staged = "[+](bold #FF3333)"
+renamed = "[~](#CC3333)"
+deleted = "[](#DF1F1F)"
+
+# =============================================================================
+# TIME - Grid clock
+# =============================================================================
+[time]
+disabled = false
+format = "[](bold #4a1515)[$time]($style)[](bold #4a1515) "
+style = "#FF6666"
+time_format = "%H:%M"
+
+# =============================================================================
+# BATTERY - Power cell indicator
+# =============================================================================
+[battery]
+disabled = false
+format = "[$symbol$percentage]($style) "
+
+[[battery.display]]
+threshold = 15
+style = "bold #DF1F1F"
+charging_symbol = " "
+discharging_symbol = " "
+
+[[battery.display]]
+threshold = 30
+style = "#CC3333"
+charging_symbol = " "
+discharging_symbol = " "
+
+[[battery.display]]
+threshold = 100
+style = "#992222"
+charging_symbol = " "
+discharging_symbol = " "
+
+# =============================================================================
+# JOBS - Background process indicator
+# =============================================================================
+[jobs]
+disabled = false
+symbol = " "
+style = "#CC2222"
+format = "[$symbol$number]($style) "
+threshold = 1
+
+# =============================================================================
+# COMMAND DURATION - Execution time display
+# =============================================================================
+[cmd_duration]
+min_time = 1_000
+format = "[ $duration]($style) "
+style = "#CC3333"
+show_milliseconds = false
+show_notifications = false
+
+# =============================================================================
+# STATUS - Error code display
+# =============================================================================
+[status]
+disabled = false
+format = "[](bold #661111)[$status]($style)[](bold #661111) "
+style = "bold #DF1F1F"
+symbol = ""
+map_symbol = true
+
+# =============================================================================
+# MEMORY USAGE - RAM status (when high)
+# =============================================================================
+[memory_usage]
+disabled = false
+threshold = 75
+format = "[ ${ram_pct}]($style) "
+style = "#CC3333"
+
+# =============================================================================
+# LANGUAGES - Circuit data types
+# =============================================================================
+[nodejs]
+symbol = " "
+style = "#CC2222"
+format = "[$symbol$version]($style) "
+detect_files = ["package.json", ".nvmrc", ".node-version"]
+detect_folders = ["node_modules"]
+
+[python]
+symbol = " "
+style = "#CC2222"
+format = "[$symbol$version( $virtualenv)]($style) "
+
+[rust]
+symbol = " "
+style = "#BB2222"
+format = "[$symbol$version]($style) "
+
+[golang]
+symbol = " "
+style = "#CC2222"
+format = "[$symbol$version]($style) "
+
+[java]
+symbol = " "
+style = "#CC2222"
+format = "[$symbol$version]($style) "
+
+[kotlin]
+symbol = " "
+style = "#CC2222"
+format = "[$symbol$version]($style) "
+
+[lua]
+symbol = " "
+style = "#CC2222"
+format = "[$symbol$version]($style) "
+
+[php]
+symbol = " "
+style = "#CC2222"
+format = "[$symbol$version]($style) "
+
+[ruby]
+symbol = " "
+style = "#CC2222"
+format = "[$symbol$version]($style) "
+
+[swift]
+symbol = " "
+style = "#CC2222"
+format = "[$symbol$version]($style) "
+
+[zig]
+symbol = " "
+style = "#CC2222"
+format = "[$symbol$version]($style) "
+
+[deno]
+symbol = " "
+style = "#CC2222"
+format = "[$symbol$version]($style) "
+
+[bun]
+symbol = " "
+style = "#CC2222"
+format = "[$symbol$version]($style) "
+
+[dotnet]
+symbol = " "
+style = "#CC2222"
+format = "[$symbol$version]($style) "
+
+# =============================================================================
+# DOCKER - Container status
+# =============================================================================
+[docker_context]
+symbol = " "
+style = "#992222"
+format = "[$symbol$context]($style) "
+only_with_files = true
+
+# =============================================================================
+# KUBERNETES - Cluster info
+# =============================================================================
+[kubernetes]
+disabled = false
+symbol = "󱃾 "
+style = "#992222"
+format = "[$symbol$context( \\($namespace\\))]($style) "
+
+# =============================================================================
+# PACKAGE VERSION
+# =============================================================================
+[package]
+disabled = false
+symbol = " "
+style = "#992222"
+format = "[$symbol$version]($style) "
+
+# =============================================================================
+# SUDO - Elevated privileges indicator
+# =============================================================================
+[sudo]
+disabled = false
+symbol = " "
+style = "bold #DF1F1F"
+format = "[$symbol]($style)"
+
+# =============================================================================
+# SHELL - Current shell indicator
+# =============================================================================
+[shell]
+disabled = true
+format = "[$indicator]($style) "
+style = "#992222"
+
+# =============================================================================
+# OS - Operating system (disabled for cleaner look)
+# =============================================================================
+[os]
+disabled = true
+style = "#992222"
+
+# =============================================================================
+# HOSTNAME & USERNAME (shown in SSH sessions)
+# =============================================================================
+[username]
+disabled = false
+show_always = false
+style_user = "#CC2222"
+style_root = "bold #DF1F1F"
+format = "[$user]($style)@"
+
+[hostname]
+disabled = false
+ssh_only = true
+style = "#CC2222"
+format = "[$hostname]($style) "
+
+# =============================================================================
+# DISABLED MODULES
+# =============================================================================
+[aws]
+disabled = true
+[azure]
+disabled = true
+[gcloud]
+disabled = true

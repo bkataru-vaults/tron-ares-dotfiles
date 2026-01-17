@@ -1,0 +1,47 @@
+# =============================================================================
+# Starship Configuration for PowerShell - Tron Ares (Crimson Red)
+# =============================================================================
+# Accurate Ares circuitry colors: Deep crimson red on black
+
+add_newline = true
+
+format = """
+[+-](bold #FF3333)\
+$directory\
+$git_branch\
+$git_status\
+$line_break\
+[+-](bold #FF3333)\
+$character"""
+
+[character]
+success_symbol = "[>](bold #FF3333)"
+error_symbol = "[>](bold #DF1F1F)"
+
+[package]
+disabled = true
+
+[git_branch]
+symbol = " "
+style = "bold #ffffff"
+format = "on [$symbol$branch]($style) "
+
+[git_status]
+disabled = false
+style = "bold #FF3333"
+
+[directory]
+style = "bold #FF3333"
+truncation_length = 3
+truncation_symbol = ".../"
+
+[memory_usage]
+disabled = false
+threshold = 75
+symbol = "RAM "
+format = "via $symbol[${ram}]($style) "
+style = "dimmed white"
+
+[cmd_duration]
+min_time = 2_000
+style = "#CC3333"
