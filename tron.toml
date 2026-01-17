@@ -1,0 +1,164 @@
+# Tron Ares Dotfiles Configuration
+# Maps repo paths to system locations
+
+# Format: Each [[config]] defines a managed config file or directory
+# - name: Display name
+# - category: Grouping for display (terminal, shell, editor, cli, mcp)
+# - repo_path: Path relative to dotfiles repo
+# - system_path: Absolute path on system (supports ${HOME}, ${APPDATA}, ${LOCALAPPDATA})
+# - files: Optional list of specific files (if omitted, entire directory)
+
+[dotfiles]
+repo_path = "~/Projects/tron-ares-dotfiles"
+
+# =============================================================================
+# Terminal
+# =============================================================================
+
+[[config]]
+name = "wezterm"
+category = "terminal"
+repo_path = "wezterm/.wezterm.lua"
+system_path = "${HOME}/.wezterm.lua"
+
+[[config]]
+name = "alacritty"
+category = "terminal"
+repo_path = "alacritty/alacritty.toml"
+system_path = "${APPDATA}/alacritty/alacritty.toml"
+
+# =============================================================================
+# Shell
+# =============================================================================
+
+[[config]]
+name = "nushell-config"
+category = "shell"
+repo_path = "nushell/config.nu"
+system_path = "${APPDATA}/nushell/config.nu"
+
+[[config]]
+name = "nushell-env"
+category = "shell"
+repo_path = "nushell/env.nu"
+system_path = "${APPDATA}/nushell/env.nu"
+
+[[config]]
+name = "powershell"
+category = "shell"
+repo_path = "powershell/Microsoft.PowerShell_profile.ps1"
+system_path = "${HOME}/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
+
+[[config]]
+name = "starship-nu"
+category = "shell"
+repo_path = "starship/starship-nu.toml"
+system_path = "${HOME}/.config/starship-nu.toml"
+
+[[config]]
+name = "starship-pwsh"
+category = "shell"
+repo_path = "starship/starship-pwsh.toml"
+system_path = "${HOME}/.config/starship.toml"
+
+# =============================================================================
+# Editors
+# =============================================================================
+
+[[config]]
+name = "zed"
+category = "editor"
+repo_path = "zed/settings.json"
+system_path = "${APPDATA}/Zed/settings.json"
+
+[[config]]
+name = "helix-config"
+category = "editor"
+repo_path = "helix/config.toml"
+system_path = "${APPDATA}/helix/config.toml"
+
+[[config]]
+name = "helix-languages"
+category = "editor"
+repo_path = "helix/languages.toml"
+system_path = "${APPDATA}/helix/languages.toml"
+
+# =============================================================================
+# CLI Tools
+# =============================================================================
+
+[[config]]
+name = "git"
+category = "cli"
+repo_path = "git/.gitconfig"
+system_path = "${HOME}/.gitconfig"
+
+[[config]]
+name = "ripgrep"
+category = "cli"
+repo_path = "ripgrep/.ripgreprc"
+system_path = "${HOME}/.ripgreprc"
+
+[[config]]
+name = "gh"
+category = "cli"
+repo_path = "gh/config.yml"
+system_path = "${APPDATA}/GitHub CLI/config.yml"
+
+[[config]]
+name = "fastfetch"
+category = "cli"
+repo_path = "fastfetch/config.jsonc"
+system_path = "${HOME}/.config/fastfetch/config.jsonc"
+
+[[config]]
+name = "spotify-player"
+category = "cli"
+repo_path = "spotify-player/app.toml"
+system_path = "${HOME}/.config/spotify-player/app.toml"
+
+# =============================================================================
+# MCP Infrastructure
+# =============================================================================
+
+[[config]]
+name = "mcp-servers"
+category = "mcp"
+repo_path = "mcp/servers.json"
+system_path = "${HOME}/.mcp/servers.json"
+
+[[config]]
+name = "mcp-run-cmd"
+category = "mcp"
+repo_path = "mcp/mcp-run.cmd"
+system_path = "${HOME}/.mcp/mcp-run.cmd"
+
+[[config]]
+name = "mcp-run-ps1"
+category = "mcp"
+repo_path = "mcp/mcp-run.ps1"
+system_path = "${HOME}/.mcp/mcp-run.ps1"
+
+[[config]]
+name = "mcp-gen-config"
+category = "mcp"
+repo_path = "mcp/mcp-gen-config.ps1"
+system_path = "${HOME}/.mcp/mcp-gen-config.ps1"
+
+[[config]]
+name = "mcp-node-version"
+category = "mcp"
+repo_path = "mcp/.node-version"
+system_path = "${HOME}/.mcp/.node-version"
+
+[[config]]
+name = "opencode"
+category = "mcp"
+repo_path = "opencode/opencode.json"
+system_path = "${HOME}/.config/opencode/opencode.json"
+
+[[config]]
+name = "bin-mcp-run"
+category = "mcp"
+repo_path = "bin/mcp-run.cmd"
+system_path = "${HOME}/bin/mcp-run.cmd"
