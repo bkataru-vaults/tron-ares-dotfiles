@@ -1,0 +1,27 @@
+[package]
+name = "tron"
+description = "Tron Ares dotfiles and config manager CLI"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "tron"
+path = "src/main.rs"
+
+[dependencies]
+clap.workspace = true
+clap_complete.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+dirs.workspace = true
+colored.workspace = true
+tabled.workspace = true
+toml = "0.8"
+similar = "2"
+walkdir = "2"
+sha2 = "0.10"
+hex = "0.4"
+chrono = "0.4"

@@ -34,3 +34,6 @@ desktop.ini
 *.cache
 node_modules/
 __pycache__/
+
+# Rust build artifacts
+/target/
